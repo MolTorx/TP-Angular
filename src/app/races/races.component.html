@@ -1,8 +1,21 @@
 <h2>My Races</h2>
+
+<div>
+  <label for="new-race">Race name: </label>
+  <input id="new-race" #raceName />
+
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button type="button" class="add-button" (click)="add(raceName.value); raceName.value=''">
+    Add race
+  </button>
+</div>
+
 <ul class="races">
   <li *ngFor="let race of races">
     <a routerLink="/detail/{{race.location}}">
       <span class="badge">{{race.location}}</span> {{race.name}}
     </a>
+    <button type="button" class="delete" title="delete race"
+      (click)="delete(race)">x</button>
   </li>
 </ul>

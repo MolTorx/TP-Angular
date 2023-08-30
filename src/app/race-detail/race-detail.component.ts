@@ -24,12 +24,19 @@ export class RaceDetailComponent implements OnInit {
   }
 
   getRace(): void {
-    const location = String(this.route.snapshot.paramMap.get('location'));
+    const location = this.route.snapshot.paramMap.get('location')!;
     this.raceService.getRace(location)
       .subscribe(race => this.race = race);
   }
 
   goBack(): void {
     this.location.back();
+  }
+
+  save(): void {
+    if (this.race) {
+      this.raceService.updateRace(this.race)
+        .subscribe(() => this.goBack());
+    }
   }
 }

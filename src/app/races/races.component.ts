@@ -21,4 +21,19 @@ export class RacesComponent implements OnInit {
     this.raceService.getRaces()
     .subscribe(races => this.races = races);
   }
+
+  add(name: string): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.raceService.addRace({ name } as Race)
+      .subscribe(race => {
+        this.races.push(race);
+      });
+  }
+
+  delete(race: Race): void {
+    this.races = this.races.filter(h => h !== race);
+    this.raceService.deleteRace(race.location).subscribe();
+  }
+
 }
