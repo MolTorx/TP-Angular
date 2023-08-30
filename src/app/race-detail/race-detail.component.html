@@ -1,10 +1,9 @@
 <div *ngIf="race">
-
     <h2>{{race.name | uppercase}} Details</h2>
     <div><span>location: </span>{{race.location}}</div>
     <div>
       <label for="race-name">Race name: </label>
-      <input id="race-name" [(ngModel)]="race.name" placeholder="name">
+      <input id="race-name" [(ngModel)]="race.name" placeholder="Race name"/>
     </div>
-  
+    <button type="button" (click)="goBack()">go back</button>
   </div>

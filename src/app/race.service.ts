@@ -6,9 +6,7 @@ import { Race } from './race';
 import { RACES } from './mock-races';
 import { MessageService } from './message.service';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable({ providedIn: 'root' })
 export class RaceService {
 
   constructor(private messageService: MessageService) { }
@@ -17,5 +15,12 @@ export class RaceService {
     const races = of(RACES);
     this.messageService.add('RaceService: fetched races');
     return races;
+  }
+
+  getRace(location: string): Observable<Race> {
+    
+    const race = RACES.find(h => h.location === location)!;
+    this.messageService.add(`RaceService: fetched race location=${location}`);
+    return of(race);
   }
 }

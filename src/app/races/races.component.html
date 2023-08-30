@@ -1,12 +1,8 @@
 <h2>My Races</h2>
-
 <ul class="races">
   <li *ngFor="let race of races">
-    <button [class.selected]="race === selectedRace" type="button" (click)="onSelect(race)">
-      <span class="badge">{{race.location}}</span>
-      <span class="name">{{race.name}}</span>
-    </button>
+    <a routerLink="/detail/{{race.location}}">
+      <span class="badge">{{race.location}}</span> {{race.name}}
+    </a>
   </li>
 </ul>
-
-<app-race-detail [race]="selectedRace"></app-race-detail>

@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-
 import { Race } from '../race';
 import { RaceService } from '../race.service';
 
 @Component({
-  selector: 'app-races',
-  templateUrl: './races.component.html',
-  styleUrls: ['./races.component.css']
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrls: [ './dashboard.component.css' ]
 })
-export class RacesComponent implements OnInit {
+export class DashboardComponent implements OnInit {
   races: Race[] = [];
 
   constructor(private raceService: RaceService) { }
@@ -19,6 +18,6 @@ export class RacesComponent implements OnInit {
 
   getRaces(): void {
     this.raceService.getRaces()
-    .subscribe(races => this.races = races);
+      .subscribe(races => this.races = races.slice(1, 5));
   }
 }
