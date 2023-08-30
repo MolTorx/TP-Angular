@@ -1,4 +1,5 @@
 <h2>My Races</h2>
+
 <ul class="races">
   <li *ngFor="let race of races">
     <button [class.selected]="race === selectedRace" type="button" (click)="onSelect(race)">
@@ -8,11 +9,4 @@
   </li>
 </ul>
 
-<div *ngIf="selectedRace">
-  <h2>{{selectedRace.name | uppercase}} Details</h2>
-  <div>location: {{selectedRace.location}}</div>
-  <div>
-    <label for="race-name">Race name: </label>
-    <input id="race-name" [(ngModel)]="selectedRace.name" placeholder="name">
-  </div>
-</div>
+<app-race-detail [race]="selectedRace"></app-race-detail>
