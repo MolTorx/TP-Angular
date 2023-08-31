@@ -14,6 +14,8 @@ import { RaceDetailComponent } from './race-detail/race-detail.component';
 import { RacesComponent } from './races/races.component';
 import { RaceSearchComponent } from './race-search/race-search.component';
 import { MessagesComponent } from './messages/messages.component';
+import { LoginComponent } from './login/login.component';
+import { LoginService } from './login.service';
 
 @NgModule({
   imports: [
@@ -35,8 +37,12 @@ import { MessagesComponent } from './messages/messages.component';
     RacesComponent,
     RaceDetailComponent,
     MessagesComponent,
-    RaceSearchComponent
+    RaceSearchComponent,
+    LoginComponent
   ],
+
+  
+
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
